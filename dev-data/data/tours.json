@@ -466,5 +466,19 @@
         "day": 5
       }
     ]
+  },
+  {
+    "id": null,
+    "name": "The Sea Explorer",
+    "duration": 7,
+    "maxGroupSize": 15,
+    "difficulty": "medium"
+  },
+  {
+    "id": 11,
+    "name": "The Sea Explorer",
+    "duration": 7,
+    "maxGroupSize": 15,
+    "difficulty": "medium"
   }
 ]
