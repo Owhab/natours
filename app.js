@@ -7,6 +7,8 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours.json`)
 );
 
+// Get all the tours
+
 app.get("/api/v1/tours", (req, res) => {
   res.status(200).json({
     status: "success",
@@ -17,6 +19,18 @@ app.get("/api/v1/tours", (req, res) => {
   });
 });
 
+// Get a single tour by id
+
+app.get("/api/v1/tours/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const tour = tours.find((el) => el.id === id);
+  res.status(200).json({
+    status: "success",
+    data: { tour },
+  });
+});
+
+// Creata a new tour
 app.post("/api/v1/tours", (req, res) => {
   const newId = tours.length + 1;
   const newTour = Object.assign({ id: newId }, req.body);
