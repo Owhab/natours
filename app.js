@@ -72,6 +72,21 @@ app.patch("/api/v1/tours/:id", (req, res) => {
   });
 });
 
+app.patch("/api/v1/tours/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const tour = tours.find((el) => el.id === id);
+  if (!tour) {
+    res.status(404).json({
+      status: "failed",
+      message: "Invalid Id",
+    });
+  }
+  res.status(200).json({
+    status: "Success",
+    message: "Updated Successfully.",
+  });
+});
+
 const port = 3000;
 app.listen(port, () => {
   console.log("Natours app listen on port: ", port);
